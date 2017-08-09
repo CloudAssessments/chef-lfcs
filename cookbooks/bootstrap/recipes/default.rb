@@ -30,3 +30,7 @@ git 'lfcsa-lab-files' do
   revision 'challenge1'
   action :sync
 end
+
+service 'sshd' do
+  action :start
+end
