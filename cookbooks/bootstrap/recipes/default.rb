@@ -43,7 +43,7 @@ directory '/opt/scripts' do
   action :create
 end
 
-remote_file '/opt/scripts/fix-reorts.sh' do
+remote_file '/opt/scripts/fix-reports.sh' do
   group 'root'
   owner 'root'
   mode '755'
