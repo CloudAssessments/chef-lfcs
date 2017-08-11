@@ -20,7 +20,10 @@ if node['platform_family'] == "debian"
     salt 'linuxacademy'
     gid 'sudo'
   end
-
+  
+  group 'cloud_user' do
+    members 'cloud_user'
+  end
   openssh_server '/etc/ssh/sshd_config' do
     PasswordAuthentication yes
   end
