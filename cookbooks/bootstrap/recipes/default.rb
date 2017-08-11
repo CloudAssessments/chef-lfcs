@@ -20,7 +20,7 @@ if node['platform_family'] == "debian"
     salt 'linuxacademy'
     gid 'sudo'
   end
-  
+
   group 'cloud_user' do
     members 'cloud_user'
   end
@@ -28,13 +28,6 @@ if node['platform_family'] == "debian"
     PasswordAuthentication yes
   end
 end
-
-#git 'lfcsa-lab-files' do
-#  repository 'https://github.com/CloudAssessments/lfcsa-lab-files.git'
-#  revision 'challenge1'
-#  destination '/root/lfcsa-lab-files'
-#  action :sync
-#end
 
 directory '/opt/scripts' do
   owner 'root'
