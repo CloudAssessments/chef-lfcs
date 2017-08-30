@@ -12,21 +12,30 @@ end
 
 if node['platform_family'] == "debian"
 
+  group 'cloud_user' do
+    members 'cloud_user'
+  end
+
   user 'cloud_user' do
     home '/home/cloud_user'
     manage_home true
     shell '/bin/bash'
     password '$1$linuxaca$iGMxZ4g4lbPmfEDPhW3lw1'
     salt 'linuxacademy'
-    gid 'sudo'
+    gid 'cloud_user'
   end
 
-  group 'cloud_user' do
-    members 'cloud_user'
+  execute 'add cloud_user to sudoers' do
+    command '/bin/echo \'cloud_user ALL=(ALL:ALL) NOPASSWD: ALL\' >> /etc/sudoers'
   end
+
   openssh_server '/etc/ssh/sshd_config' do
     PasswordAuthentication yes
   end
+end
+
+if node['platform_family'] == "redhat"
+  command '/bin/echo \'cloud_user  ALL=(ALL)  NOPASSWD: ALL\' >> /etc/sudoers'
 end
 
 directory '/opt/scripts' do
