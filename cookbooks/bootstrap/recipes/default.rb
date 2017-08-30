@@ -34,9 +34,11 @@ if node['platform_family'] == "debian"
   end
 end
 
-#if node['platform_family'] == "redhat"
-#  command '/bin/echo \'cloud_user  ALL=(ALL)  NOPASSWD: ALL\' >> /etc/sudoers'
-#end
+if node['platform_family'] == "rhel"
+  execute 'add cloud_user to sudoers' do
+    command '/bin/echo \'cloud_user  ALL=(ALL)  NOPASSWD: ALL\' >> /etc/sudoers'
+  end
+end
 
 directory '/opt/scripts' do
   owner 'root'
