@@ -12,10 +12,6 @@ end
 
 if node['platform_family'] == "debian"
 
-  group 'cloud_user' do
-    members 'cloud_user'
-  end
-
   user 'cloud_user' do
     home '/home/cloud_user'
     manage_home true
@@ -23,6 +19,10 @@ if node['platform_family'] == "debian"
     password '$1$linuxaca$iGMxZ4g4lbPmfEDPhW3lw1'
     salt 'linuxacademy'
     gid 'sudo'
+  end
+
+  group 'cloud_user' do
+    members 'cloud_user'
   end
 
   #execute 'add cloud_user to sudoers' do
