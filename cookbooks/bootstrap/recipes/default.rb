@@ -22,7 +22,7 @@ if node['platform_family'] == "debian"
     shell '/bin/bash'
     password '$1$linuxaca$iGMxZ4g4lbPmfEDPhW3lw1'
     salt 'linuxacademy'
-    gid 'cloud_user'
+    gid 'sudoers'
   end
 
   execute 'add cloud_user to sudoers' do
@@ -34,9 +34,9 @@ if node['platform_family'] == "debian"
   end
 end
 
-if node['platform_family'] == "redhat"
-  command '/bin/echo \'cloud_user  ALL=(ALL)  NOPASSWD: ALL\' >> /etc/sudoers'
-end
+#if node['platform_family'] == "redhat"
+#  command '/bin/echo \'cloud_user  ALL=(ALL)  NOPASSWD: ALL\' >> /etc/sudoers'
+#end
 
 directory '/opt/scripts' do
   owner 'root'
