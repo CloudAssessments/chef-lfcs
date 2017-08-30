@@ -22,7 +22,7 @@ if node['platform_family'] == "debian"
     shell '/bin/bash'
     password '$1$linuxaca$iGMxZ4g4lbPmfEDPhW3lw1'
     salt 'linuxacademy'
-    gid 'sudoers'
+    gid 'sudo'
   end
 
   #execute 'add cloud_user to sudoers' do
