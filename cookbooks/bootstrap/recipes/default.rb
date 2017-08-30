@@ -25,9 +25,9 @@ if node['platform_family'] == "debian"
     gid 'sudoers'
   end
 
-  execute 'add cloud_user to sudoers' do
-    command '/bin/echo \'cloud_user ALL=(ALL:ALL) NOPASSWD: ALL\' >> /etc/sudoers'
-  end
+  #execute 'add cloud_user to sudoers' do
+  #  command '/bin/echo \'cloud_user ALL=(ALL:ALL) NOPASSWD: ALL\' >> /etc/sudoers'
+  #end
 
   openssh_server '/etc/ssh/sshd_config' do
     PasswordAuthentication yes
