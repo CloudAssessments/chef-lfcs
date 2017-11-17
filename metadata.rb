@@ -1,4 +1,4 @@
-name 'lfc'
+name 'lfcs'
 maintainer 'The Authors'
 maintainer_email 'you@example.com'
 license 'All Rights Reserved'
